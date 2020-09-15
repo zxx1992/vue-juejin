@@ -17,6 +17,7 @@
 <script>
 import Dialog from "./Dialog"
 export default {
+	name: "propCom",
     props: {
         name: String,
     },

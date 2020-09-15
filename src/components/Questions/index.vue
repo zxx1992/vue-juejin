@@ -5,31 +5,32 @@
 -->
 <template>
 	<div>
-		<Time></Time>
-		<Arr></Arr>
-		<String></String>
-		<Texts></Texts>
-		<Promise></Promise>
+		<timeVue></timeVue>
+		<arr></arr>
+		<string></string>
+		<texts></texts>
+		<!-- <Promise></Promise> -->
 		<Dialog></Dialog>
-		<PropCom :name="name" :age="age"></PropCom>
+		<propCom :name="name" :age="age"></PropCom>
 	</div>
 </template>
 <script>
-import Time from './time'
-import Arr from './arr'
-import String from './string'
-import Texts from './texts'
-import Promise from './promise'
-import PropCom from './propCom'
+// import Time from './time'
+// import Arr from './arr'
+// import String from './string'
+// import Texts from './texts'
+// import Promise from './promise'
+// import PropCom from './propCom'
 export default {
-	components: {
-		Time,
-		Arr,
-		String,
-		Texts,
-		Promise,
-		PropCom
-	},
+	name:"index",
+	// components: {
+	// 	Time,
+	// 	Arr,
+	// 	String,
+	// 	Texts,
+	// 	Promise,
+	// 	PropCom
+	// },
 	data() {
 		return {
 			name: "我是父的name",

@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+    name: "arr",
     data() {
         this.arr1 = [12,[34,56],78];
         return {

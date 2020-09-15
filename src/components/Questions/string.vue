@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+	name: "string",
 	data() {
 		return {
 			string: '1233568993215468',

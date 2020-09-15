@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+	name: "timeVue",
 	data() {
 		return {
 			clock: 0,
