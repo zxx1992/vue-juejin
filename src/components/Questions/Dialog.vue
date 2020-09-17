@@ -25,7 +25,7 @@ export default {
 	},
 	data() {
 		return {
-			visible: true,
+			visible: false,
 			users: [
 				{ name: "1", age: 12 },
 				{ name: "2", age: 13 },

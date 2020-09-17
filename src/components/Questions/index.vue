@@ -13,9 +13,10 @@
 		<Dialog></Dialog>
 		<propCom :name="name" :age="age"></PropCom>
 		<vModel v-model="text"></vModel>
-		{{text}}
 		<customModel :active="true" @change="change"></customModel>
-		<dynamic></dynamic>		
+		<dynamic></dynamic>	
+		<hookEvent></hookEvent>	
+		<observalbeVue></observalbeVue>
 	</div>
 </template>
 <script>

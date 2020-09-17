@@ -7,9 +7,11 @@
 	<div>
 		<Button @click="onHandleStr">将二维数组转为一维</Button>
 		{{string}}---{{repeatNum}}---{{repeatNum2}}
+		{{userInfo.name}}
 	</div>
 </template>
 <script>
+import { store } from '../../store/store'
 export default {
 	name: "string",
 	data() {
@@ -17,6 +19,14 @@ export default {
 			string: '1233568993215468',
 			repeatNum: 0,
 			repeatNum2: 0,
+		}
+	},
+	mounted() {
+		// this.$emit("childMounted")
+	},
+	computed: {
+		userInfo() {
+			return store.userInfo
 		}
 	},
 	methods: {
