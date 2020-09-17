@@ -12,6 +12,7 @@ import { Button, Dialog } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
+import loading from "./components/Questions/loading/loadingDirective.js"
 
 Vue.config.productionTip = false;
 Vue.use(Antd);
@@ -20,15 +21,16 @@ Vue.use(ViewUI);
 Vue.use(Button);
 Vue.use(Dialog);
 
+
 // 引入自定义的组件,全局注册
 const requireComponents = require.context('./components/Questions', false, /\.vue/);
-// console.log(requireComponents,"requireeeeeeee")
 
 requireComponents.keys().forEach(fileName => {
   const reqcom = requireComponents(fileName).default;
   Vue.component(reqcom.name, reqcom)
 })
 
+Vue.use(loading);
 new Vue({
   router,
   store,

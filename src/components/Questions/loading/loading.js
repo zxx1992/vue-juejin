@@ -25,12 +25,11 @@ LoadingConstructor.prototype.close = function () {
     }, 300)
 }
 
-const Loading = (options = {}) => {
+const LoadingVue = (options = {}) => {
      // 如果组件已渲染，则返回即可
     if (loading) {
          return loading 
     }
-    console.log(options,"options")
     // 拿到要挂载的元素，
     const parent = document.body;
      // 组件属性
@@ -55,5 +54,4 @@ const Loading = (options = {}) => {
 
 // 可以直接将组件挂载到vue.prototype上面
 // Vue.prototype.$loading = Loading
-console.log(Loading,"loading")
-export default Loading;
+export default LoadingVue;

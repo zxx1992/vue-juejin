@@ -4,7 +4,7 @@
  * @Description: flat 扁平化 
 -->
 <template>
-<div>
+<div v-loading="visible">
     {{arr2}}
     <Button @click="onChangeArr">扁平化</Button>
 </div>
@@ -18,7 +18,8 @@ export default {
             arr2: [],
             arr3: [42,24,6,6,42,57,78,27,27],
             ave: [],
-            total: 0
+            total: 0,
+            visible: true
         }
     },
     methods: {
@@ -36,6 +37,7 @@ export default {
                     arr0 = []
                 }
             }
+            this.visible = false
             console.log(this.ave,"ave")
         }
     }
