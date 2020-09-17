@@ -12,6 +12,7 @@
 </template>
 <script>
 import { store } from '../../store/store'
+
 export default {
 	name: "string",
 	data() {
@@ -41,9 +42,8 @@ export default {
                 }
 			}
 			this.repeatNum = newaRR.length
-            console.log(newaRR, 'newaRR')
             // 去重 
-            this.repeatNum2 = [...new Set(this.string)].length;
+			this.repeatNum2 = [...new Set(this.string)].length;
 		}
 	}
 }

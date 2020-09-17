@@ -5,20 +5,31 @@
 -->
 <template>
 	<div>
-		<List>
-			<ListItem v-for="(item, index) in textList" :key="index">
-				<ListItemMeta :title="item.Q" :description="item.A"></ListItemMeta>
-				<a :href="item.href" target="blank">{{item.href}}</a>
-			</ListItem>
-		</List>
+		<div v-if="loadingList.length>0">
+			<List>
+				<ListItem v-for="(item, index) in loadingList" :key="index">
+					<ListItemMeta :title="item.Q" :description="item.A"></ListItemMeta>
+					<a :href="item.href" target="blank">{{item.href}}</a>
+				</ListItem>
+			</List>
+		</div>
+		<!-- <loading :visible="visible" :text="text" v-else></loading> -->
+
 		<Button @click="onClick">test</Button>
 	</div>
 </template>
 <script>
+// 组件 
+// import loading from "../Questions/loading"
 export default {
 	name: "texts",
+	// components: {
+	// 	loading
+	// },
 	data() {
 		return {
+			visible: true,
+			text: "暂无数据",
 			textList: [
 				{
 					Q: '介绍chrome 浏览器的几个版本',
@@ -56,7 +67,8 @@ export default {
 						'',
 					A: '::before ::after'
 				}
-			]
+			],
+			loadingList:[]
 		}
 	},
 	methods: {
@@ -68,7 +80,7 @@ export default {
 		debounce(func, wait) {
 			// console.log(func, wait,"222")
 			let timeout
-			return function() {
+			return function () {
 				const context = this
 				const args = arguments
 				clearTimeout(timeout)
@@ -78,7 +90,10 @@ export default {
 			}
 		},
 		onClick() {
-			this.debounce(this.onTest, 3000)
+			// loading 加载框测试
+			// this.loadingList = this.textList
+			// this.visible = false;
+			// this.debounce(this.onTest, 3000)
 		},
 		onTest() {
 			console.log('cccc')

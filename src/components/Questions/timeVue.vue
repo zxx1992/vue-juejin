@@ -7,6 +7,7 @@
 	<div>{{clock}}</div>
 </template>
 <script>
+import  Loading from './loading/loading.js'
 export default {
 	name: "timeVue",
 	data() {
@@ -16,11 +17,18 @@ export default {
 	},
 	methods: {
 		get() {
-            this.clock += 1;
+			this.clock += 1;
 		}
 	},
+	created() {
+		const loading = Loading({text: "加载中。。。"})
+		console.log(loading,"laod")
+		// setTimeout(() => {
+		// 	loading.close()
+		// }, 3000)
+	},
 	mounted() {
-		this.mySetInterVal = setInterval(() => {this.get()}, 1000)
+		this.mySetInterVal = setInterval(() => { this.get() }, 1000)
 	},
 	// 定时器摧毁
 	beforeDestroy() {
