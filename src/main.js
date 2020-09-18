@@ -13,6 +13,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
 import loading from "./components/Questions/loading/loadingDirective.js"
+// 全局注册dayjs
+import dayjs from 'dayjs'
+Vue.prototype.dayjs = dayjs
 
 Vue.config.productionTip = false;
 Vue.use(Antd);

@@ -17,6 +17,7 @@
 		<dynamic></dynamic>	
 		<hookEvent></hookEvent>	
 		<observalbeVue></observalbeVue>
+		<timeFormat></timeFormat>
 	</div>
 </template>
 <script>
