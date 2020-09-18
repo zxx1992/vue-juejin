@@ -8,18 +8,25 @@
 		<Button @click="onHandleStr">将二维数组转为一维</Button>
 		{{string}}---{{repeatNum}}---{{repeatNum2}}
 		{{userInfo.name}}
+		<functionVue :avatar="avatar"></functionVue>
 	</div>
 </template>
 <script>
 import { store } from '../../store/store'
 
+import functionVue from './functionVue.vue'
+
 export default {
+	components: {
+		functionVue
+	},
 	name: "string",
 	data() {
 		return {
 			string: '1233568993215468',
 			repeatNum: 0,
 			repeatNum2: 0,
+			avatar: require('../../assets/logo.png')
 		}
 	},
 	mounted() {
