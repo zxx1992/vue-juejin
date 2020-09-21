@@ -18,6 +18,7 @@
 		<hookEvent></hookEvent>	
 		<observalbeVue></observalbeVue>
 		<timeFormat></timeFormat>
+		<test></test>
 	</div>
 </template>
 <script>
