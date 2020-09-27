@@ -19,7 +19,16 @@ export default {
             arr3: [42,24,6,6,42,57,78,27,27],
             ave: [],
             total: 0,
-            visible: true
+            visible: true,
+            arrObject: [
+                {name: "xx", age: 24},
+                {name: "cc", age: 25},
+            ],
+            objIterator: {
+                name:"1",
+                age: 2,
+                sex: "male"
+            }
         }
     },
     methods: {
@@ -39,7 +48,37 @@ export default {
             }
             this.visible = false
             console.log(this.ave,"ave")
+            // for...of  遍历数组
+            // for (let v of this.arrObject) {
+            //     console.log(v, v.name, "")
+            // }
+             // for...in  遍历数组
+            for (let key in this.arrObject) {
+                console.log(key, "")
+            }
+
+            // 给对象添加iterator接口，使用for of 遍历 
+            this.objIterator[Symbol.iterator] = function() {
+                const keys = Object.keys(this);
+                console.log(keys, this,"this")
+                let index = 0;
+                return {
+                    next: () => {
+                        return {
+                            value: this[keys[index++]],
+                            done: index > keys.length
+                        }
+                    }
+                }
+            }
+            // console.log(this.objIterator,"objiter")
+            for (let v of this.objIterator) {
+                console.log(v, "objIterator")
+            }
         }
     }
 }
 </script>
+// points: 
+// 1 for (let of)  可以直接拿到键值；具备iterator接口的可使用，比如数组原生就具备
+// 2 for (let in ) 拿到键
