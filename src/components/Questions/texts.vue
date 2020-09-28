@@ -13,6 +13,12 @@
 				</ListItem>
 			</List>
 		</div>
+		<p>Vue响应式原理</p>
+		<List>
+			<ListItem v-for="(item, index) in vueList" :key="index">
+				<ListItemMeta :title="item.Q" :description="item.A"></ListItemMeta>
+			</ListItem>
+		</List>
 		<!-- <loading :visible="visible" :text="text" v-else></loading> -->
 
 		<Button @click="onClick">test</Button>
@@ -68,7 +74,39 @@ export default {
 					A: '::before ::after'
 				}
 			],
-			loadingList:[]
+			vueList: [
+				{
+					Q: 'Vue 初始化',
+					href:
+						'',
+					A: '::before ::after'
+				},
+				{
+					Q: '模板渲染',
+					href:
+						'',
+					A: '::before ::after'
+				},
+				{
+					Q: '组件渲染',
+					href:
+						'',
+					A: '::before ::after'
+				},
+				{
+					Q: '从 Vue 初始化，到首次渲染生成 DOM 的流程',
+					href:
+						'',
+					A: '::before ::after'
+				},
+				{
+					Q: '从 Vue 数据修改，到页面更新 DOM 的流程。',
+					href:
+						'',
+					A: '::before ::after'
+				},
+			],
+			loadingList: []
 		}
 	},
 	methods: {
@@ -79,21 +117,31 @@ export default {
 		// 搜索框联想场景：防止联想发送请求，只发送最后一次输入
 		debounce(func, wait) {
 			// console.log(func, wait,"222")
-			let timeout
+			let timeout = null;
 			return function () {
-				const context = this
-				const args = arguments
 				clearTimeout(timeout)
 				timeout = setTimeout(() => {
-					func.apply(context, args)
+					func.apply(this, arguments)
 				}, wait)
 			}
+		},
+		throttle(fn, time) {
+			let flag = true;
+			return function () {
+				if (!flag) return;
+				flag = false;
+				setTimeout(() => {
+					fn.apply(this, arguments);
+					flag = true;
+				}, time);
+			}
+
 		},
 		onClick() {
 			// loading 加载框测试
 			// this.loadingList = this.textList
 			// this.visible = false;
-			// this.debounce(this.onTest, 3000)
+			this.throttle(this.onTest, 5000)
 		},
 		onTest() {
 			console.log('cccc')
