@@ -75,6 +75,15 @@ export default {
             for (let v of this.objIterator) {
                 console.log(v, "objIterator")
             }
+
+            // 数组去重:indexOf 跟include同理
+            const newArr = [];
+            for (let v of this.arr3) {
+                if (!newArr.includes(v)) {
+                    newArr.push(v)
+                }
+            }
+            console.log(newArr,"newArr")
         }
     }
 }
@@ -82,3 +91,4 @@ export default {
 // points: 
 // 1 for (let of)  可以直接拿到键值；具备iterator接口的可使用，比如数组原生就具备
 // 2 for (let in ) 拿到键
+// 3  数组去重
