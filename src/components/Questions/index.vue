@@ -19,6 +19,8 @@
 		<observalbeVue></observalbeVue>
 		<timeFormat></timeFormat>
 		<test></test>
+		<css></css>
+		<github></github>
 	</div>
 </template>
 <script>

@@ -9,24 +9,31 @@
 		{{string}}---{{repeatNum}}---{{repeatNum2}}
 		{{userInfo.name}}
 		<functionVue :avatar="avatar"></functionVue>
+		<css :author="author" v-show="false"></css>
+		<checkboxInput v-on:focus.native="onFocus"></checkboxInput>
 	</div>
 </template>
 <script>
 import { store } from '../../store/store'
 
 import functionVue from './functionVue.vue'
-
+import css from './css.vue'
+import checkboxInput from './checkboxInput.vue'
+import {Person} from "../../common/constant"
 export default {
 	components: {
-		functionVue
+		functionVue,
+		css,
+		checkboxInput
 	},
 	name: "string",
 	data() {
 		return {
+			author: new Person("xx","xz"),
 			string: '1233568993215468',
 			repeatNum: 0,
 			repeatNum2: 0,
-			avatar: require('../../assets/logo.png')
+			avatar: require('../../assets/avator.png')
 		}
 	},
 	mounted() {
@@ -38,7 +45,11 @@ export default {
 		}
 	},
 	methods: {
+		onFocus() {
+			console.log("string")
+		},
 		onHandleStr() {
+			// 去重 1
 			let arr = this.string.split('')
 			let newaRR = []
 			for (let i = 0; i < arr.length; i++) {
@@ -49,7 +60,7 @@ export default {
                 }
 			}
 			this.repeatNum = newaRR.length
-            // 去重 
+            // 去重 2
 			this.repeatNum2 = [...new Set(this.string)].length;
 		}
 	}
