@@ -105,6 +105,49 @@ export default {
 						'',
 					A: '::before ::after'
 				},
+				{
+					Q: '说说你对 SPA 单页面的理解，它的优缺点分别是什么？',
+					href:
+						'',
+					A: `${"优点：用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染"}${"优点：基于上面一点，SPA 相对对服务器压力小；"}${"优点：前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理；"}
+					${"缺点：初次加载耗时多：为实现单页 Web 应用功能及显示效果，需要在加载页面的时候将 JavaScript、CSS 统一加载，部分页面按需加载；"}${"缺点：前进后退路由管理：由于单页应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理；"}${"缺点：SEO 难度较大：由于所有的内容都在一个页面中动态替换显示，所以在 SEO 上其有着天然的弱势。"}`
+				},
+				{
+					Q: '加载渲染过程',
+					href:
+						'',
+					A: '父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted'
+				},
+				{
+					Q: '子组件更新过程',
+					href:
+						'',
+					A: '父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated'
+				},
+				{
+					Q: '父组件更新过程',
+					href:
+						'',
+					A: '父 beforeUpdate -> 父 updated'
+				},
+				{
+					Q: '销毁过程',
+					href:
+						'',
+					A: '父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed'
+				},
+				{
+					Q: '在哪个生命周期内调用异步请求？',
+					href:
+						'',
+					A: `${"可以在钩子函数 created、beforeMount、mounted 中进行调用，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。但是本人推荐在 created 钩子函数中调用异步请求，因为在 created 钩子函数中调用异步请求有以下优点："}${"能更快获取到服务端数据，减少页面 loading 时间；ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性"}`
+				},
+				{
+					Q: '在什么阶段才能访问操作DOM？',
+					href:
+						'',
+					A: '在钩子函数 mounted 被调用前，Vue 已经将编译好的模板挂载到页面上，所以在 mounted 中可以访问操作 DOM'
+				},
 			],
 			loadingList: []
 		}
