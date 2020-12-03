@@ -21,6 +21,7 @@
 		<test></test>
 		<css></css>
 		<github></github>
+		<pdf></pdf>
 	</div>
 </template>
 <script>
