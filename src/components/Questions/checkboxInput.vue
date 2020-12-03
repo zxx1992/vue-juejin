@@ -4,28 +4,43 @@
  * @Description: 封装input组件
 -->
 <template>
-    <input :type="type" v-model="val"/>
+	<input v-model="val" type="text"/>
 </template>
 <script>
 export default {
-    name: "checkboxInput",
-    props: {
-        type: String,
-        value: String,
-    },
-    data() {
-        return {
-            val: this.value
-        }
-    },
-    watch: {
-        value(n) {
-            this.val = n;
-        },
-        val(n) {
-            this.$emit("input", n)
-        }
-    }
+	name: "checkboxInput",
+	props: {
+		type: String,
+		value: String,
+	},
+	data() {
+		return {
+			val: this.value
+		}
+	},
+	watch: {
+		value(n) {
+			this.val = n;
+		},
+		val(n) {
+			this.$emit("input", n)
+		}
+	},
+	updated() {
+		console.log("子updated")
+	},
+	beforeUpdate() {
+		console.log("子beforeUpdate")
+	},
+	mounted() {
+		console.log("子mounted")
+	},
+	created() {
+		console.log("子created")
+	},
+	destroyed() {
+		console.log("子destroyed")
+	},
 }
 </script>
 // point: 

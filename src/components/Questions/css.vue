@@ -12,7 +12,7 @@
 			<div class="item item4">科林利康 执行副总裁，董事/合伙人美达临床数据 总经理</div>
 		</div>
 		<Button @click="onClick" v-show="false">点击</Button>
-		{{author.firstName}}
+		{{author}}
 	</div>
 </template>
 <script>

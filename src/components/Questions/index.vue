@@ -24,22 +24,8 @@
 	</div>
 </template>
 <script>
-// import Time from './time'
-// import Arr from './arr'
-// import String from './string'
-// import Texts from './texts'
-// import Promise from './promise'
-// import PropCom from './propCom'
 export default {
 	name:"index",
-	// components: {
-	// 	Time,
-	// 	Arr,
-	// 	String,
-	// 	Texts,
-	// 	Promise,
-	// 	PropCom
-	// },
 	data() {
 		return {
 			name: "我是父的name",
