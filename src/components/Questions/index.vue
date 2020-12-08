@@ -22,6 +22,7 @@
 		<css></css>
 		<github></github>
 		<pdf></pdf>
+		<weituo></weituo>
 	</div>
 </template>
 <script>
