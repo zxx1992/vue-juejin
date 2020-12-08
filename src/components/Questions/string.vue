@@ -22,6 +22,8 @@ import functionVue from './functionVue.vue'
 import css from './css.vue'
 import checkboxInput from './checkboxInput.vue'
 import { Person } from "../../common/constant"
+
+import { promise, getJSON,ColorPoint } from "../../common/api.js"
 export default {
 	components: {
 		functionVue,
@@ -36,7 +38,8 @@ export default {
 			string: '1233568993215468',
 			repeatNum: 0,
 			repeatNum2: 0,
-			avatar: require('../../assets/avator.png')
+			avatar: require('../../assets/avator.png'),
+			url: 'https://edoc.clinicalservice.cn/edoc/license/info'
 		}
 	},
 	mounted() {
@@ -51,13 +54,58 @@ export default {
 		}
 	},
 	methods: {
+		// es6 常用的新语法
 		doSomething() {
+			// let ,const  块级作用域，无变量提升概念
 			console.log('父组件监听到 mounted 钩子函数 ...');
+			let [a, b, c] = [5, 6, 7];
+			if (true) {
+				let [a, b, c] = [10];
+			}
+			console.log(a, "a")
+
+			// 对象的解构赋值
+			let { bar, foo } = { foo: "aaa", bar: "bbb" };
+			console.log(bar, foo, "222")
+
+			// map, set 
+			const m = new Map();
+			const o = { p: 'hello world' };
+			m.set(o, 'constent');
+			console.log(m, m.get(o), "mmm")
+
+			// 类数组对象
+			var obj = {
+				'0': 'a',
+				'1': 'b',
+				'2': 'c',
+				length: 3
+			};
+
+			// for...in循环主要是为遍历对象而设计的，不适用于遍历数组
+			for(let key in obj) {
+				console.log(key,"key")
+			}
+			// 转为数组
+			var objArr = Array.from(obj);
+			console.log(objArr, "objArr")
+			// 适用于数组，有Generator 接口
+			for (let val of objArr) {
+				console.log(val, "valval")
+			}
+
+
+			// class
+			let cp = new ColorPoint(28, 8, 'green');//ColorPoint {x: 28, y: 8, color: "green"}
+			console.log(cp, "cp")
 		},
 		onFocus() {
 			console.log("string")
 		},
 		onHandleStr() {
+			this.onGetFetch();
+			this.onGetPromise();
+			this.onGetAJAX();
 			// 去重 1
 			let arr = this.string.split('')
 			let newaRR = []
@@ -71,8 +119,52 @@ export default {
 			this.repeatNum = newaRR.length
 			// 去重 2
 			this.repeatNum2 = [...new Set(this.string)].length;
+		},
+		//  fetch 请求
+		onGetFetch() {
+			promise.then(function (data) {
+				console.log(data)
+			}).catch(function (error) {
+				console.log(error)
+			})
+		},
+		onGetPromise() {
+			// 新建一个promise实例
+			let promise = new Promise(function (resolve, reject) {
+				console.log('promise');  // 1 
+				resolve();
+			})
+			// then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行
+			promise.then(function () {
+				console.log("resolved")// 3
+			})
+
+			console.log("hi nihaoa")// 2
+		},
+		onGetAJAX() {
+			// getJSON(this.url).then(function (json) {
+			// 	console.log(json, "json");
+			// }, function (error) {
+			// 	console.log(error);
+			// })
+
+			getJSON(this.url).then(function (post) {
+				console.log(post, "post")
+				//commentURL
+				return getJSON(post.commentURL);
+			}).then(function (comments) {
+				console.log("resolved: ", comments);
+			}, function (err) {
+				console.log("rejected: ", err);
+			});
 		}
 	}
 }
 </script>
 
+// point: 
+// let const 块级作用域 无变量提升 
+// 变量的解构赋值
+// 数据类型 map set
+// promise: 所有同步的操作执行完才会执行，将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数
+// 
