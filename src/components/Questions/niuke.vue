@@ -1,11 +1,68 @@
 <template>
-    <div>123</div>
+	<div>123</div>
 </template>
 <script>
 export default {
 	name: "niuke",
-    methods: {
-        maxVal(a, b, c) {
+	data() {
+		return {
+
+		}
+	},
+	mounted() {
+		this.onValidString()
+	},
+	methods: {
+		// 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+		// 解题思路：
+		// 使用1个堆栈即可解决，依次遍历这个字符串，
+		// 如果遇到是左括号就入栈到堆栈中，如果遇到的是右括号，则从堆栈中取出栈顶的第一个左括号，比对一下这个左括号和当前遇到的右括号是否匹配，如果不匹配这认为这整个字符串无效。
+		// 如果能匹配，则OK，删除这个左括号和右括号，继续往后走，继续遍历字符串中剩下的字符，只要遇到左括号就入栈，只要遇到右括号就与将栈顶的左括号出栈与之比较。
+		// 一直走到字符串结束，再来检查堆栈中是否还有元素，如果还有元素，则这个字符串同样无效，如果堆栈为空，则字符串有效。
+
+		onValidString() {
+			// let str = "()[]{}";
+			// let str = "{[]}";
+			let str = "([)]";
+			let strSplit = str.split("");
+			console.log(strSplit, "strSplit");
+			// 方法1
+			// let stack = [];
+			// for (let i = 0; i < strSplit.length; i++) {
+			// 	let node = strSplit[i];
+			// 	if (node == "(" || node == "{" || node == "[") {
+			// 		stack.push(node)
+			// 	} else {
+			// 		let temp = stack.pop();
+			// 		if ((temp == "(" && node == ")") || (temp == "{" && node == "}") || (temp == "[" && node == "]")) {
+			// 			continue
+			// 		} else {
+			// 			console.log("false")
+			// 			// return false;
+			// 		}
+			// 	}
+			// }
+
+			// 方法2
+			let stackMap = new Map();
+			stackMap.set('(',')');
+			stackMap.set('{','}');
+			stackMap.set('[',']');
+			console.log(stackMap,"stackMap")
+			let stack = [];
+			for (let val of strSplit) {
+				if (val == "(" || val == "{" || val == "[") {
+					stack.push(val)
+				} else {
+					let temp = stack.pop();
+					if (stackMap.get(temp) != val) {
+						console.log("false2")
+						return false
+					}
+				}
+			}
+		},
+		maxVal(a, b, c) {
 			let maxs = [];
 			for (let j = 0; j < a; j++) {
 				let arrT = b.slice(j, j + c);
@@ -18,9 +75,6 @@ export default {
 			let maxSum = Math.max(...maxs);
 			console.log(maxSum, "maxSum")
 
-		},
-		onCheck() {
-			console.log(luckysheet.getluckysheetfile(), "luckysheet.getAllSheets()[0]")
 		},
 		kaopuCar(car) {
 			let carArr = car.toString().split("");
@@ -97,7 +151,7 @@ export default {
 				let element = number;
 				arr[element] = 1;
 			}
-			console.log(arr,"arr")
+			console.log(arr, "arr")
 			for (let [index, elem] of arr.entries()) {
 				console.log(index, elem);
 			}
@@ -109,18 +163,18 @@ export default {
 		},
 		// 最大公约数，最小公倍数 :辗转相除法
 		getGongyueshu(m, n) {
-			if (n == 0){
+			if (n == 0) {
 				return m;
 			};
-			return this.getGongyueshu(n, m%n); 
+			return this.getGongyueshu(n, m % n);
 		},
 		miwenjiexi() {
 			let obj = {
 				0: ["0"],
 				1: ["1"],
-				2: ["a","a","a"],
-				3: ["a","a","a"],
-				4: ["a","a","a"],
+				2: ["a", "a", "a"],
+				3: ["a", "a", "a"],
+				4: ["a", "a", "a"],
 				5: ["0"],
 				6: ["0"],
 				7: ["0"],
@@ -128,6 +182,11 @@ export default {
 				9: ["0"],
 			}
 		}
-    }
+	}
 }
 </script>
+
+// point: 算法
+// 1 数组和链表（）
+// 2 堆栈（桶）
+// 3 队列（排队买饭）

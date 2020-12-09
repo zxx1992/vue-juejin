@@ -225,4 +225,4 @@ export default {
 // 6 session和cookie的区别
 // 7 生命周期原理（父和子，）
 // 8 v-if 和 v-show
-// 9 
+// 9 http和https

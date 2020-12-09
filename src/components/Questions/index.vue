@@ -23,6 +23,7 @@
 		<github></github>
 		<pdf></pdf>
 		<weituo></weituo>
+		<niuke></niuke>
 	</div>
 </template>
 <script>
