@@ -24,6 +24,7 @@
 		<pdf></pdf>
 		<weituo></weituo>
 		<niuke></niuke>
+		<vue></vue>
 	</div>
 </template>
 <script>

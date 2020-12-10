@@ -148,6 +148,18 @@ export default {
 						'',
 					A: '在钩子函数 mounted 被调用前，Vue 已经将编译好的模板挂载到页面上，所以在 mounted 中可以访问操作 DOM'
 				},
+				{
+					Q: '什么是SPA',
+					href:
+						'',
+					A: '举个例子来讲就是一个杯子，早上装的牛奶，中午装的是开水，晚上装的是茶，我们发现，变的始终是杯子里的内容，而杯子始终是那个杯子'
+				},
+				{
+					Q: 'SPA和MPA的区别',
+					href:
+						'',
+					A: ''
+				},
 			],
 			loadingList: []
 		}
@@ -197,3 +209,10 @@ export default {
 	}
 }
 </script>
+// points: 
+// 1 tcp 和udp 
+// 2 vue 生命周期
+// 3 js 和ts 
+// 4 http缓存头
+// 5 react 了解多少
+// 6 js 的继承
