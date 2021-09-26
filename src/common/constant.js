@@ -4,17 +4,17 @@
  * @Description: 
  */
 export function test123() {
-    // console.log(import.meta,"fff")
+	// console.log(import.meta,"fff")
 }
 
 // 构造函数：props使用
-export function Person(firstName,lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+export function Person(firstName, lastName) {
+	this.firstName = firstName;
+	this.lastName = lastName;
 }
 // 重写call 
-export let myCall = function() {
-    let _fn = this
+export let myCall = function () {
+	let _fn = this
 	if (typeof _fn !== 'function') {
 		throw new TypeError('error')
 	}
@@ -29,4 +29,25 @@ export let myCall = function() {
 	let res = ctx.myCallFn(...args)
 	delete ctx.myCallFn
 	return res
+}
+// class 继承
+
+class Parent {
+	constructor() {
+		this.p = 2;
+	}
+}
+
+// 子类必须在constructor 中调用super 方法，
+// 因为子类中没有自己的this对象，只能继承父类的this 对象
+export class Children1 extends Parent {
+	constructor(x, y, color) {
+		console.log(x, y, color, "classs");
+		// super 作为对象时：普通方法中指向父类的原型对象，静态方法中指向父类；
+		super(x, y)
+		this.color = color;
+	}
+	toString() {
+		return this.x + this.y + this.color;
+	}
 }
