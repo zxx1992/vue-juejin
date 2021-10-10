@@ -25,6 +25,7 @@
     <texts></texts>
     <!-- <Promise></Promise> -->
     <Dialog></Dialog>
+    <keep-alive>keepalive</keep-alive>
     <propCom :name="name" :age="age"></propCom>
     <vModel v-model="text"></vModel>
     {{ text }}

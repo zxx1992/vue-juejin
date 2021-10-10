@@ -1,3 +1,10 @@
+/*
+ * @Description: ...页面文件
+ * @Autor: zxx
+ * @Date: 2020-12-01 22:20:41
+ * @LastEditors: zxx
+ * @LastEditTime: 2021-10-10 22:30:53
+ */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
@@ -8,11 +15,17 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: {
+      keepAlive: true  // 需要缓存
+    }
   },
   {
     path: "/about",
     name: "About",
+    meta: {
+      keepAlive: false  // 需要缓存
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
