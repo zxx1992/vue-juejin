@@ -4,45 +4,53 @@
  * @Description: 封装input组件
 -->
 <template>
-	<input v-model="val" type="text"/>
+  <input v-model="val" type="text" v-on="{ blur: onBlur, focus: onFocus, select: onSelect }" />
 </template>
 <script>
 export default {
-	name: "checkboxInput",
-	props: {
-		type: String,
-		value: String,
-	},
-	data() {
-		return {
-			val: this.value
-		}
-	},
-	watch: {
-		value(n) {
-			this.val = n;
-		},
-		val(n) {
-			this.$emit("input", n)
-		}
-	},
-	updated() {
-		console.log("子updated")
-	},
-	beforeUpdate() {
-		console.log("子beforeUpdate")
-	},
-	mounted() {
-		console.log("子mounted")
-	},
-	created() {
-		console.log("子created")
-	},
-	destroyed() {
-		console.log("子destroyed")
-	},
+  name: 'checkboxInput',
+  props: {
+    type: String,
+    value: String,
+  },
+  data() {
+    return { val: this.value }
+  },
+  methods: {
+    onBlur() {
+      console.log(this.val, 'blur')
+    },
+    onFocus() {
+      console.log('focus')
+    },
+    onSelect() {
+      console.log('select')
+    },
+  },
+  watch: {
+    value(n) {
+      this.val = n
+    },
+    val(n) {
+      this.$emit('input', n)
+    },
+  },
+  updated() {
+    console.log('子updated')
+  },
+  beforeUpdate() {
+    console.log('子beforeUpdate')
+  },
+  mounted() {
+    console.log('子mounted')
+  },
+  created() {
+    console.log('子created')
+  },
+  destroyed() {
+    console.log('子destroyed')
+  },
 }
 </script>
-// point: 
-// 你可能有很多次想要在一个组件的根元素上直接监听一个原生事件。这时，你可以使用 v-on 的 .native 修饰符：
-// 而不需要使用this.$emit("")
+// point: // 你可能有很多次想要在一个组件的根元素上直接监听一个原生事件。这时，你可以使用 v-on 的 .native 修饰符： //
+而不需要使用this.$emit("")

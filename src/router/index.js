@@ -3,19 +3,20 @@
  * @Autor: zxx
  * @Date: 2020-12-01 22:20:41
  * @LastEditors: zxx
- * @LastEditTime: 2021-10-10 22:30:53
+ * @LastEditTime: 2021-10-14 18:54:46
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+// import Home from "../views/Home.vue";
+import Index from "../views/evaluate/Index.vue"
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Index",
+    component: Index,
     meta: {
       keepAlive: true  // 需要缓存
     }

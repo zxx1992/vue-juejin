@@ -3,7 +3,7 @@
  * @Autor: zxx
  * @Date: 2020-12-01 22:20:41
  * @LastEditors: zxx
- * @LastEditTime: 2021-10-11 10:56:35
+ * @LastEditTime: 2021-10-11 17:31:14
 -->
 <template>
   <div class="about">
@@ -29,7 +29,12 @@ export default {
     }
   },
   computed: {
+    // currentTabComponent: function() {
+    //   console.log(this, 'this')
+    //   return 'tab' + this.currentTab
+    // },
     currentTabComponent() {
+      // console.log(vm, 'this')
       return 'tab' + this.currentTab
     },
   },

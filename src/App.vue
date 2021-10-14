@@ -3,18 +3,18 @@
  * @Autor: zxx
  * @Date: 2020-12-01 22:20:41
  * @LastEditors: zxx
- * @LastEditTime: 2021-10-10 22:32:45
+ * @LastEditTime: 2021-10-14 18:55:43
 -->
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
-    </keep-alive>
-    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </keep-alive> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -25,5 +25,4 @@
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
 </style>
