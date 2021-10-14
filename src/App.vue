@@ -3,18 +3,19 @@
  * @Autor: zxx
  * @Date: 2020-12-01 22:20:41
  * @LastEditors: zxx
- * @LastEditTime: 2021-10-14 18:55:43
+ * @LastEditTime: 2021-10-14 22:35:14
 -->
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav">
+      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link>|
+      <router-link to="/index">index</router-link> |
+      <router-link to="/h5">h5</router-link>
     </div>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
-    </keep-alive> -->
-    <router-view></router-view>
+    </keep-alive>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 

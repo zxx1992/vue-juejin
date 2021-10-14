@@ -3,20 +3,37 @@
  * @Autor: zxx
  * @Date: 2020-12-01 22:20:41
  * @LastEditors: zxx
- * @LastEditTime: 2021-10-14 18:54:46
+ * @LastEditTime: 2021-10-14 22:34:07
  */
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Home from "../views/Home.vue";
+import Home from "../views/Home.vue";
 import Index from "../views/evaluate/Index.vue"
+import h5Tag from "../views/h5tag.vue"
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
+    name: "Home",
+    component: Home,
+    meta: {
+      keepAlive: true  // 需要缓存
+    }
+  },
+  {
+    path: "/index",
     name: "Index",
     component: Index,
+    meta: {
+      keepAlive: true  // 需要缓存
+    }
+  },
+  {
+    path: "/h5",
+    name: "h5",
+    component: h5Tag,
     meta: {
       keepAlive: true  // 需要缓存
     }
